@@ -33,15 +33,15 @@ function App() {
 
   return (
     <>
-      <div className="flex justify-center items-center mt-5 text-6xl">
+      <div className="flex justify-center items-center h-[10vh] text-6xl">
         <h1>Boxy OrderItemFilterMaker</h1>
       </div>
-      <div className="flex min-h-screen">
-        <div className="flex flex-col justify-center items-center w-1/2 p-4">
-          <div className="w-full">
+      <div className="flex flex-row min-h-[90vh] h-[90vh]">
+        <div className="flex flex-col justify-center items-center w-full h-full p-4">
+          <div className="w-full h-full flex flex-col justify-center">
             <textarea
               placeholder="Másold be a filterezni kívánt SKU-kat"
-              className="textarea textarea-bordered textarea-lg w-full h-[50vh]"
+              className="textarea textarea-bordered textarea-lg w-full h-[40vh] resize-none"
               onChange={(e) => {
                 setskuInput(e.target.value);
               }}
@@ -64,7 +64,7 @@ function App() {
             </button>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center w-1/2 p-4">
+        <div className="flex flex-col justify-center items-center w-full p-4">
           <h1>{orderItemFilterresult}</h1>
         </div>
       </div>
