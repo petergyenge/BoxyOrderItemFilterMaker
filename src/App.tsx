@@ -31,6 +31,22 @@ function App() {
     setskuArray(skuInputToArray(skuInput));
   };
 
+
+  const downloadFile = (content: string, filename: string) => {
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+  
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+  
+    document.body.appendChild(a);
+    a.click();
+  
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <>
       <div className="flex justify-center items-center h-[10vh] text-6xl">
@@ -66,6 +82,12 @@ function App() {
         </div>
         <div className="flex flex-col justify-center items-center w-full p-4">
           <h1>{orderItemFilterresult}</h1>
+          <button
+              className="btn btn-outline btn-primary mt-5"
+              onClick={() => downloadFile(orderItemFilterresult, 'orderItemFilter.txt')}
+            >
+              Letöltés TXT fájlban
+            </button>
         </div>
       </div>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
